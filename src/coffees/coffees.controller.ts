@@ -25,8 +25,8 @@ export class CoffeesController {
   }
 
   @Get(':id')
-  fineOne(@Param('id') id: string) {
-    return this.CoffeesService.findOne(id);
+  fineOne(@Param('id') id: number) {
+    return this.CoffeesService.findOne('' + id);
   }
 
   @Post()
@@ -37,10 +37,10 @@ export class CoffeesController {
 
   @Patch(':id')
   update(
-    @Param(':id') id: string,
+    @Param(':id') id: number,
     @Body(':id') updateCoffeeDto: UpdateCoffeeDto,
   ) {
-    return this.CoffeesService.update(id, updateCoffeeDto);
+    return this.CoffeesService.update('' + id, updateCoffeeDto);
   }
 
   @Delete(':id')
